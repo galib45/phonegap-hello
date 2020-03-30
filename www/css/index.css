@@ -1,0 +1,13 @@
+html {
+    font-size: 120%;
+}
+
+.ui-header .ui-title,
+.ui-footer .ui-title {
+    margin: 0 15%;
+}
+
+.ui-header .ui-title {
+    font-size: 1.4em;
+    padding: .3em 0;
+}
