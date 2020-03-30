@@ -9,6 +9,7 @@ function onDeviceReady() {
     StatusBar.show();
     StatusBar.backgroundColorByHexString('#d0f5fc');
     StatusBar.styleDefault();
+    $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
     $.mobile.defaultPageTransition = 'slide';
 
