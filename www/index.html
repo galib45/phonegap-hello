@@ -13,42 +13,70 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link href='https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Poppins|Roboto&display=swap' rel='stylesheet' type='text/css'>
 
     <title>Hello World</title>
 </head>
 
 <body>
+    <!-- Home Page -->
     <div data-role="page" data-theme="c" id="home">
         <div data-role="header" data-theme="c" data-position="fixed" data-id="header">
             <h1>Meducation</h1>
         </div>
         <div role="main" class="ui-content">
-            <p>This is my first phonegap app</p>
-            <label for="name"><p>What's your name, dude?</p></label>
-            <input type="text" placeholder="Enter your name" id="name"><br>
-            <center><button class="ui-btn ui-btn-inline ui-corner-all" id="btn">Done</button></center>     
+            <ul data-role="listview" data-theme="c" id="mainList"></ul>    
         </div>
         <div data-role="footer" data-theme="c" data-position="fixed" data-id="footer"> 
             <div data-role="navbar" class="ui-nodisc-icon ui-alt-icon">
                 <ul>
                     <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
-                    <li><a href="settings.html" data-icon="gear">Settings</a></li>
-                    <li><a href="about.html" data-icon="info">About</a></li>
+                    <li><a href="#settings" data-icon="gear" id="homToset">Settings</a></li>
+                    <li><a href="#about" data-icon="info">About</a></li>
                 </ul>
-            </div>
-        </div>
-        <!-- popup window -->
-        <div data-role="popup" data-position-to="window" data-transition="pop" data-overlay-theme="b" data-theme="c" data-dismissible="false" id="greet">
-            <div data-role="header">
-                <h1>Greetings</h1>
-            </div>
-            <div role="main" class="ui-content" style="text-align: center;">
-                <p id="greeting-text"></p>
-                <button class="ui-btn ui-btn-b ui-corner-all" id="popbtn">Okay, Got It!</button>
             </div>
         </div>
     </div>
 
+    <!-- Settings Page -->
+    <div data-role="page" data-theme="c" id="settings">
+        <div data-role="header" data-theme="c" data-position="fixed" data-id="header">
+            <h1>Meducation</h1>
+        </div>
+        <div role="main" class="ui-content">
+            This is settings
+        </div>
+        <div data-role="footer" data-theme="c" data-position="fixed" data-id="footer"> 
+            <div data-role="navbar" class="ui-nodisc-icon ui-alt-icon">
+                <ul>
+                    <li><a href="#home" data-direction="reverse" data-icon="home" id="setTohom">Home</a></li>
+                    <li><a href="#" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+                    <li><a href="#about" data-icon="info" id="setToabo">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div data-role="page" data-theme="c" id="about">
+        <div data-role="header" data-theme="c" data-position="fixed" data-id="header">
+            <h1>Meducation</h1>
+        </div>
+        <div role="main" class="ui-content">
+            This is about    
+        </div>
+        <div data-role="footer" data-theme="c" data-position="fixed" data-id="footer"> 
+            <div data-role="navbar" class="ui-nodisc-icon ui-alt-icon">
+                <ul>
+                    <li><a href="#home" data-direction="reverse" data-icon="home">Home</a></li>
+                    <li><a href="#settings" data-direction="reverse" data-icon="gear" id="aboToset">Settings</a></li>
+                    <li><a href="#" data-icon="info"  class="ui-btn-active ui-state-persist">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Page is dynamically generated-->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </body>
