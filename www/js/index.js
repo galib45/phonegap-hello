@@ -21,15 +21,15 @@ function onDeviceReady() {
         url: url,
         success: function(result, status, xhr) {
             console.log(status);
-            $('#home').append(status);
+            //$('#home').append(status);
             prepareList(result.articles);
             console.log('done');
         },
         error: function(xhr, status, error) {
             console.log(status);
-            $('#home').append(status);
+            //$('#home').append(status);
             console.log(error);
-            $('#home').append(error);
+            //$('#home').append(error);
         }
     });
 }
