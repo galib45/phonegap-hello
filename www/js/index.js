@@ -9,6 +9,10 @@ function onDeviceReady() {
     StatusBar.show();
     StatusBar.backgroundColorByHexString('#d0f5fc');
     StatusBar.styleDefault();
+    $.mobile.loading('show', {
+        text: 'Loading...', textVisible: true,
+        theme: 'c', html:''
+    });
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
     $.mobile.defaultPageTransition = 'slide';
@@ -21,6 +25,7 @@ function onDeviceReady() {
         url: url,
         success: function(result, status, xhr) {
             console.log(status);
+            $.mobile.loading('hide');
             //$('#home').append(status);
             prepareList(result.articles);
             console.log('done');
@@ -85,8 +90,4 @@ $('#settings').on('swiperight', function() {
 
 $('#about').on('swiperight', function() {
     $('#aboToset').click();
-});
-
-$(document).on('backbutton', function() {
-    
 });
