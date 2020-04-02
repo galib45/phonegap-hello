@@ -28,7 +28,9 @@ function onDeviceReady() {
     $.mobile.defaultPageTransition = 'slide';
 
     var push = PushNotification.init({
-        android: {}
+        android: {
+            senderID: "712037591708"
+        }
     });
     
     alert(push.options.android.senderID, 'Sender ID');
