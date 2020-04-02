@@ -33,6 +33,8 @@ function onDeviceReady() {
         "android": {
             "senderID": "712037591708"
         }
+    }).catch(function() {
+        alert('error on init');
     });
     alert('push initialized');
     
