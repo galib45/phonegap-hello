@@ -27,36 +27,6 @@ function onDeviceReady() {
     $.mobile.allowCrossDomainPages = true;
     $.mobile.defaultPageTransition = 'slide';
 
-    var push = PushNotification.init({
-        android: {
-            senderID: "712037591708"
-        }
-    });
-    
-    alert(push.options.android.senderID, 'Sender ID');
-
-    push.on('registration', function(data) {
-        alert(
-            'registrationId:\n' + 
-            data.registrationId + 
-            '\n\nregistrationType: ' +
-            data.registrationType,
-            'Registered as'
-        );
-    });
-
-    push.on('notification', function(data) {
-        alert(
-            'Received notification:\n' +
-            data.title + '\n' +
-            data.message
-        );
-    });
-
-    push.on('error', function(error) {
-        alert('Error:\n' + error.message);
-    })
-    
     cordova.plugin.progressDialog.init({
         theme : 'DEVICE_LIGHT',
         progressStyle : 'SPINNER',
