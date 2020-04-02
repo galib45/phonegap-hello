@@ -29,17 +29,19 @@ function onDeviceReady() {
     $.mobile.defaultPageTransition = 'slide';
 
     alert('initializing push');
+    log(typeof PushNotification.init);
+    alert(typeof PushNotification.init);
     PushNotification.hasPermission(function() {
         alert('yes');
     }, function() {
         alert('no');
     });
     var push = PushNotification.init({
-        android: {}
+        android: {
+            senderID: "712037591708"
+        }
     });
     alert('push initialized');
-    
-    log(push);
 
     push.on('registration', function(data) {
         log(data);
