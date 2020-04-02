@@ -31,12 +31,9 @@
       "kr.co.joycorp.cordova.exitapp": {},
       "phonegap-plugin-push": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   },
   "dependencies": {
-    "cordova-android": "^8.1.0",
     "cordova-plugin-exitapp2": "1.0.4",
     "cordova-plugin-progressdialog": "2.0.2",
     "cordova-plugin-statusbar": "2.4.3",

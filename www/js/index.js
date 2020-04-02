@@ -6,6 +6,13 @@ function log(obj) {
     }
 }
 
+function alert(message) {
+    navigator.notification.alert(
+        message, null,
+        'Alert', 'Okay'
+    );
+}
+
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
@@ -17,12 +24,26 @@ function onDeviceReady() {
     StatusBar.styleDefault();
 
     var push = PushNotification.init({
-        android: {}
+        "android": {
+            "senderID": "712037591708"
+        }
     });
+    
+    log(push);
 
     push.on('registration', function(data) {
-        log('registration: ' + data.registrationId);
+        log(data);
+        alert(
+            'registrationId:\n' + 
+            data.registrationId + 
+            '\n\nregistrationType: ' +
+            data.registrationType
+        );
     });
+
+    push.on('error', function(error) {
+        alert('Error:\n' + error.message);
+    })
     
     cordova.plugin.progressDialog.init({
         theme : 'DEVICE_LIGHT',
