@@ -29,12 +29,13 @@ function onDeviceReady() {
     $.mobile.defaultPageTransition = 'slide';
 
     alert('initializing push');
+    PushNotification.hasPermission(function() {
+        alert('yes');
+    }, function() {
+        alert('no');
+    });
     var push = PushNotification.init({
-        "android": {
-            "senderID": "712037591708"
-        }
-    }).catch(function() {
-        alert('error on init');
+        android: {}
     });
     alert('push initialized');
     
