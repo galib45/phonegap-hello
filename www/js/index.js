@@ -6,12 +6,27 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     console.log('App Started');
+
+    // handling the status bar
     StatusBar.show();
     StatusBar.backgroundColorByHexString('#d0f5fc');
     StatusBar.styleDefault();
+    
+    /*navigator.notification.alert(
+        'Please wait...', null,
+        'Loading', 'Okay'
+    );
     $.mobile.loading('show', {
         text: 'Loading...', textVisible: true,
         theme: 'c', html:''
+    });*/
+    cordova.plugin.progressDialog.init({
+        theme : 'HOLO_DARK',
+        progressStyle : 'SPINNER',
+        cancelable : true,
+        title : 'Please Wait...',
+        message : 'Contacting server ...',
+        autoHide:3000
     });
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
@@ -25,8 +40,7 @@ function onDeviceReady() {
         url: url,
         success: function(result, status, xhr) {
             console.log(status);
-            $.mobile.loading('hide');
-            //$('#home').append(status);
+            //$.mobile.loading('hide');
             prepareList(result.articles);
             console.log('done');
         },
