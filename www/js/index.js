@@ -36,7 +36,7 @@ function onDeviceReady() {
         url: url,
         success: function(result, status, xhr) {
             console.log(status);
-            //cordova.plugin.progressDialog.dismiss();
+            cordova.plugin.progressDialog.dismiss();
             prepareList(result.articles);
             console.log('done');
         },
