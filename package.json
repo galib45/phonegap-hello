@@ -26,7 +26,8 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-vibration": {},
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "pushbots-cordova-plugin": {}
     },
     "platforms": []
   },
