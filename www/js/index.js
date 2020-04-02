@@ -6,6 +6,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     console.log('App Started');
+    window.plugins.PushbotsPlugin.initialize("5e85946489b6823e072c09f3", {"android":{"sender_id":"712037591708"}});
     StatusBar.show();
     StatusBar.backgroundColorByHexString('#d0f5fc');
     StatusBar.styleDefault();
