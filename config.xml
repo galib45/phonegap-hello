@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.galib.hello" version="1.2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.galib.hello" version="1.3.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Meducation</name>
     <description>
         Hello World sample application that responds to the deviceready event.
@@ -54,4 +54,5 @@
     <plugin name="cordova-plugin-statusbar" spec="~2.4.3" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.4" />
     <plugin name="cordova-plugin-progressdialog" spec="~2.0.2" />
+    <plugin name="kr.co.joycorp.cordova.exitapp" spec="~1.0.0" />
 </widget>

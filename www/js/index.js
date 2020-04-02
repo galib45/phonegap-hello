@@ -1,5 +1,9 @@
-function printObj(obj) {
-    console.log(JSON.stringify(obj, null, 2));
+function log(obj) {
+    if(typeof obj == 'object') {
+        console.log(JSON.stringify(obj, null, 2));
+    } else {
+        console.log(obj);
+    }
 }
 
 document.addEventListener('deviceready', onDeviceReady, false);
@@ -32,7 +36,7 @@ function onDeviceReady() {
         url: url,
         success: function(result, status, xhr) {
             console.log(status);
-            cordova.plugin.progressDialog.dismiss();
+            //cordova.plugin.progressDialog.dismiss();
             prepareList(result.articles);
             console.log('done');
         },
@@ -95,4 +99,20 @@ $('#settings').on('swiperight', function() {
 
 $('#about').on('swiperight', function() {
     $('#aboToset').click();
+});
+
+$(document).on('backbutton', function() {
+    if($.mobile.activePage.is('#home')) {
+        navigator.notification.confirm(
+            'Are you sure to close the app?',
+            function(buttonIndex) {
+                if (buttonIndex == 1) {
+                    log('exiting app...');
+                    navigator.app.exitApp();
+                }
+            }
+        );
+    } else {
+        history.back();
+    }
 });
