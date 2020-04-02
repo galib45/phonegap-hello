@@ -21,12 +21,11 @@ function onDeviceReady() {
         theme: 'c', html:''
     });*/
     cordova.plugin.progressDialog.init({
-        theme : 'HOLO_DARK',
+        theme : 'HOLO_LIGHT',
         progressStyle : 'SPINNER',
-        cancelable : true,
-        title : 'Please Wait...',
-        message : 'Contacting server ...',
-        autoHide:3000
+        cancelable : false,
+        title : 'Loading...',
+        message : 'Please wait. Contacting server ...',
     });
     $.support.cors = true;
     $.mobile.allowCrossDomainPages = true;
@@ -41,14 +40,14 @@ function onDeviceReady() {
         success: function(result, status, xhr) {
             console.log(status);
             //$.mobile.loading('hide');
+            cordova.plugin.progressDialog.dismiss();
             prepareList(result.articles);
             console.log('done');
         },
         error: function(xhr, status, error) {
             console.log(status);
-            //$('#home').append(status);
             console.log(error);
-            //$('#home').append(error);
+            navigator.notification(error, null, status, 'Okay');
         }
     });
 }
