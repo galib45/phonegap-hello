@@ -6,10 +6,10 @@ function log(obj) {
     }
 }
 
-function alert(message) {
+function alert(message, title='Alert') {
     navigator.notification.alert(
         message, null,
-        'Alert', 'Okay'
+        title, 'Okay'
     );
 }
 
@@ -17,7 +17,6 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     console.log('App Started');
-    alert('App Started');
 
     // handling the status bar
     StatusBar.show();
@@ -31,15 +30,16 @@ function onDeviceReady() {
     var push = PushNotification.init({
         android: {}
     });
-    alert('push initialized');
+    
+    alert(push.options.android.senderID, 'Sender ID');
 
     push.on('registration', function(data) {
-        log(data);
         alert(
             'registrationId:\n' + 
             data.registrationId + 
             '\n\nregistrationType: ' +
-            data.registrationType
+            data.registrationType,
+            'Registered as'
         );
     });
 
