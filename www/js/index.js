@@ -17,7 +17,7 @@ function onDeviceReady() {
         progressStyle : 'SPINNER',
         cancelable : false,
         title : 'Loading...',
-        message : 'Please wait. \nContacting server ...',
+        message : 'Please wait. \n\nContacting server ...',
     });
     
     $.support.cors = true;
