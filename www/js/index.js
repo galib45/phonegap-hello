@@ -15,6 +15,14 @@ function onDeviceReady() {
     StatusBar.show();
     StatusBar.backgroundColorByHexString('#d0f5fc');
     StatusBar.styleDefault();
+
+    var push = PushNotification.init({
+        android: {}
+    });
+
+    push.on('registration', function(data) {
+        log('registration: ' + data.registrationId);
+    });
     
     cordova.plugin.progressDialog.init({
         theme : 'DEVICE_LIGHT',
