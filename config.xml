@@ -31,7 +31,7 @@
         <splash density="port-xxxhdpi" src="www/res/screen/android/splash-port-xxxhdpi.png" />
     </platform>
     <access origin="*" />
-    
+    <access origin="http://galib45.herokuapp.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
