@@ -28,18 +28,8 @@ function onDeviceReady() {
     $.mobile.allowCrossDomainPages = true;
     $.mobile.defaultPageTransition = 'slide';
 
-    alert('initializing push');
-    log(typeof PushNotification.init);
-    alert(typeof PushNotification.init);
-    PushNotification.hasPermission(function() {
-        alert('yes');
-    }, function() {
-        alert('no');
-    });
     var push = PushNotification.init({
-        android: {
-            senderID: "712037591708"
-        }
+        android: {}
     });
     alert('push initialized');
 
@@ -50,6 +40,14 @@ function onDeviceReady() {
             data.registrationId + 
             '\n\nregistrationType: ' +
             data.registrationType
+        );
+    });
+
+    push.on('notification', function(data) {
+        alert(
+            'Received notification:\n' +
+            data.title + '\n' +
+            data.message
         );
     });
 
