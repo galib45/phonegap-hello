@@ -36,6 +36,7 @@
     </platform>
     <access origin="*" />
     <access origin="http://galib45.herokuapp.com" />
+    <access origin="https://meducation-galib45.firebaseio.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
