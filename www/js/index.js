@@ -17,17 +17,24 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     console.log('App Started');
+    alert('App Started');
 
     // handling the status bar
     StatusBar.show();
     StatusBar.backgroundColorByHexString('#d0f5fc');
     StatusBar.styleDefault();
 
+    $.support.cors = true;
+    $.mobile.allowCrossDomainPages = true;
+    $.mobile.defaultPageTransition = 'slide';
+
+    alert('initializing push');
     var push = PushNotification.init({
         "android": {
             "senderID": "712037591708"
         }
     });
+    alert('push initialized');
     
     log(push);
 
@@ -52,10 +59,6 @@ function onDeviceReady() {
         title : 'Loading...',
         message : 'Please wait. \nContacting server ...\n',
     });
-    
-    $.support.cors = true;
-    $.mobile.allowCrossDomainPages = true;
-    $.mobile.defaultPageTransition = 'slide';
 
     // get json
     var url = 'http://galib45.herokuapp.com/pathology/json';
