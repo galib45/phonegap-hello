@@ -13,20 +13,7 @@ function alert(message, title='Alert') {
     );
 }
 
-document.addEventListener('deviceready', onDeviceReady, false);
-
-function onDeviceReady() {
-    console.log('App Started');
-
-    // handling the status bar
-    StatusBar.show();
-    StatusBar.backgroundColorByHexString('#d0f5fc');
-    StatusBar.styleDefault();
-
-    $.support.cors = true;
-    $.mobile.allowCrossDomainPages = true;
-    $.mobile.defaultPageTransition = 'slide';
-
+function loadData() {
     cordova.plugin.progressDialog.init({
         theme : 'DEVICE_LIGHT',
         progressStyle : 'SPINNER',
@@ -44,7 +31,7 @@ function onDeviceReady() {
         success: function(result, status, xhr) {
             console.log(status);
             cordova.plugin.progressDialog.dismiss();
-            prepareList(result.articles);
+            localStorage.setItem('data', JSON.stringify(result));
             console.log('done');
         },
         error: function(xhr, status, error) {
@@ -53,6 +40,28 @@ function onDeviceReady() {
             navigator.notification.alert(error, null, 'Error', 'Okay');
         }
     });
+}
+
+document.addEventListener('deviceready', onDeviceReady, false);
+
+function onDeviceReady() {
+    console.log('App Started');
+
+    // handling the status bar
+    StatusBar.show();
+    StatusBar.backgroundColorByHexString('#d0f5fc');
+    StatusBar.styleDefault();
+
+    $.support.cors = true;
+    $.mobile.allowCrossDomainPages = true;
+    $.mobile.defaultPageTransition = 'slide';
+
+    var data = localStorage.getItem('data');
+    if(data == null) {
+        loadData();
+    }
+    data = JSON.parse(data);  
+    prepareList(data.articles);
 }
 
 function prepareList(articles) {
